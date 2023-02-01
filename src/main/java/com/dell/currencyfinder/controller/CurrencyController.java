@@ -23,21 +23,21 @@ public class CurrencyController {
 		
 		System.out.println("The country selected is "+ currency.getCountry());
 		
-		if(currency.getCountry().equalsIgnoreCase("India")) 
+		/*if(currency.getCountry().equalsIgnoreCase("India")) 
 			currency.setCurr("INR"); 
 		else if(currency.getCountry().equalsIgnoreCase("US")) 
 			currency.setCurr("USD");
 		else if(currency.getCountry().equalsIgnoreCase("UK"))  
 			currency.setCurr("POUND");
 		else
-			currency.setCurr("EURO");
+			currency.setCurr("EURO");*/
 		
-		/*
-		 	ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8082/currency/"+currency.getCountry(), String.class);
-			String productsJson = response.getBody();
-			System.out.println("CURRENCY FROM SERVICE IS "+productsJson);
-			currency.setCurr(productsJson);
-		*/
+		//ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8082/currency/"+currency.getCountry(), String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("http://currencyservice-currency-finder.apps.ocp4.ds.blr.lab/currency/"+currency.getCountry(), String.class);
+		String productsJson = response.getBody();
+		System.out.println("CURRENCY FROM SERVICE IS "+productsJson);
+		currency.setCurr(productsJson);
+	
 		return "currencydetails.html";
 	}
 }
