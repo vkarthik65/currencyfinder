@@ -33,8 +33,8 @@ public class CurrencyController {
 			currency.setCurr("EURO");*/
 		
 		//ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8082/currency/"+currency.getCountry(), String.class);
-		//ResponseEntity<String> response = restTemplate.getForEntity("http://currencyservice-currency-finder.apps.ocp4.ds.blr.lab/currency/"+currency.getCountry(), String.class);
-		ResponseEntity<String> response = restTemplate.getForEntity("http://currencyservice-blue-green-deployment.apps.ocp4.ds.blr.lab/currency/"+currency.getCountry(), String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("http://currencyservice-currencyfinder.apps.ocp4.ds.blr.lab/currency/"+currency.getCountry(), String.class);
+		//ResponseEntity<String> response = restTemplate.getForEntity("http://currencyservice-blue-green-deployment.apps.ocp4.ds.blr.lab/currency/"+currency.getCountry(), String.class);
 		
 		String productsJson = response.getBody();
 		System.out.println("CURRENCY FROM SERVICE IS "+productsJson);
